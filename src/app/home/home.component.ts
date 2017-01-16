@@ -9,14 +9,19 @@ import { Lesson } from '../shared/model/lesson';
 })
 export class HomeComponent implements OnInit {
 
-  lessons: Lesson[];
+  alllessons: Lesson[];
+  filtered: Lesson[];
 
   constructor(private lessonsService: LessonsService) { }
 
   ngOnInit() {
     this.lessonsService.findAllLessons()
       .do(console.log)
-      .subscribe(lessons => this.lessons = lessons);
+      .subscribe(lessons => this.alllessons = this.filtered = lessons);
+  }
+
+  search(search: string) {
+    this.filtered = this.alllessons.filter(lesson => lesson.description.includes(search));
   }
 
 }
