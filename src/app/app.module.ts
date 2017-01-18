@@ -13,11 +13,13 @@ import 'rxjs/add/operator/do'
 
 import { HomeComponent } from './home/home.component';
 import { LessonsService } from './shared/model/lessons.service';
+import { CoursesService } from './shared/model/courses.service';
 import { LessonsListComponent } from './lessons-list/lessons-list.component';
 
 import { routerConfig } from './router.config';
 import { TopMenuComponent } from './top-menu/top-menu.component';
 import { CoursesComponent } from './courses/courses.component';
+import { CourseDetailComponent } from './course-detail/course-detail.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { CoursesComponent } from './courses/courses.component';
     HomeComponent,
     LessonsListComponent,
     TopMenuComponent,
-    CoursesComponent
+    CoursesComponent,
+    CourseDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,7 @@ import { CoursesComponent } from './courses/courses.component';
     FormsModule,
     HttpModule
   ],
-  providers: [LessonsService],
+  providers: [LessonsService, CoursesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
