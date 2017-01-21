@@ -1,6 +1,6 @@
+<h2>
 
-
-<!--<h2>{{ (course$ | async)?.description  }}</h2>-->
+    {{ (course$ | async)?.description }}</h2>
 
 
 <div class="lessons-list-container v-h-center-block-parent">
@@ -10,8 +10,7 @@
         <button (click)="next()">Next Page</button>
     </div>
 
-    <lessons-list *ngIf="lessons" [lessons]="lessons"
-                  (lesson)="navigateToLesson($event)"></lessons-list>
+    <lessons-list [lessons]="lessons" (lesson)="navigateToLesson($event)"></lessons-list>
 
     <div class="tools-bar">
         <button routerLink="new" [queryParams]="{courseId: (course$ | async)?.$key }">
